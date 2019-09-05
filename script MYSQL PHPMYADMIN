@@ -1,0 +1,123 @@
+CREATE TABLE Médiathèque(
+    ID_mediatheque INT PRIMARY KEY NOT NULL,
+    Nom_mediathque TEXT(255),
+    Adresse TEXT(255)
+    )
+
+
+CREATE TABLE IF NOT EXISTS Médiathèque_Client(
+    ID_client INT,
+    ID_mediatheque  INT,
+    PRIMARY KEY (ID_mediatheque, ID_client)
+    )
+
+
+
+
+CREATE TABLE Client(
+    ID_client INT PRIMARY KEY  NOT NULL,
+    Nom_client TEXT(255),
+    Prénom_client TEXT(255),
+    Anniversaire DATE
+    )
+
+
+CREATE TABLE IF NOT EXISTS FILM_CLIENT(
+    ID_film INT,
+    ID_client  INT,
+    PRIMARY KEY (ID_film, id_client)
+)
+
+
+
+
+CREATE TABLE Film_Remake(
+    ID_film INT AUTO_INCREMENT,
+    ID_original Int,
+    Nom_film VARCHAR(255),
+    Date_film DATE,
+    Type_film TEXT(255),
+    Lang_film TEXT(255),
+    Résumé_film TEXT(255),
+    PRIMARY KEY(ID_film)
+    )
+
+
+
+
+CREATE TABLE Acteur(
+    ID_acteur INT PRIMARY KEY NOT NULL,
+    Nom_acteur TEXT(255),
+    Prénom_acteur TEXT(255),
+    Nat_acteur TEXT(255)
+    )
+
+
+CREATE TABLE IF NOT EXISTS FILM_ACTEUR(
+    ID_film INT,
+    ID_acteur INT,
+    PRIMARY KEY (ID_Film,ID_Acteur))
+
+
+
+
+CREATE TABLE Studio(
+    ID_studioINT PRIMARY KEY NOT NULL,
+    Nom_studio TEXT(255),
+    Pays_studio TEXT(255)
+    )
+
+
+CREATE TABLE IF NOT EXISTS Film_Studio(
+    ID_film INT,
+    ID_studio INT,
+    PRIMARY KEY(ID_film,ID_studio))
+
+CREATE TABLE Producteur(
+    ID_producteur INT PRIMARY KEY NOT NULL,
+    Nom_Prod TEXT(255),
+    Prénom_Prod TEXT(255),
+    Nat_Prod TEXT(255)
+    )
+
+
+CREATE TABLE IF NOT EXISTS Film_Producteur(
+    ID_film INT,
+    ID_producteur INT,
+    PRIMARY KEY (ID_film, Id_roducteur)
+)
+
+
+CREATE TABLE Réalisateur(
+    ID_réalisateur INT PRIMARY KEY  NOT NULL,
+    Titre TEXT(255),
+    Nom_REA TEXT(255),
+    Prénom_REA TEXT(255),
+    Nom_prod TEXT(255),
+    Categorie varchar (10),
+    Nat_REA TEXT (255)
+    )
+
+
+CREATE TABLE IF NOT EXISTS Film_Réalisateur(
+    ID_film INT,
+    ID_réalisateur INT,
+    PRIMARY KEY(ID_film,ID_réalisateur)
+    )
+
+
+
+
+CREATE TABLE Producteur(
+    ID_producteur INT PRIMARY KEY NOT NULL,
+    Nom_Prod TEXT(255),
+    Prénom_Prod TEXT(255),
+    Nat_Prod TEXT(255)
+    )
+
+
+CREATE TABLE IF NOT EXISTS Film_Producteur(
+    ID_film INT,
+    ID_producteur INT,
+    PRIMARY KEY (ID_film, Id_producteur)
+)

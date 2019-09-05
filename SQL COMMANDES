@@ -1,0 +1,28 @@
+NETTOYAGE DES DONNEES :
+
+UPDATE main
+SET st = REPLACE(st, 'SD:', '')
+
+CHERCHER ET NETTOYAGE DES DOUBLONS :
+
+SELECT REF, COUNT(*)
+FROM TABLE_MAIN
+GROUP BY REF
+HAVING COUNT(*)>1
+ORDER BY COUNT(*)DESC
+
+
+INSERER DES DONNEES ET NETTOYAGE DOUBLONS : 
+
+INSERT INTO Film_Temporaire (ID_film, Nom_film, Date_film, Type_film)
+
+SELECT REF, TITLE, YEAR, CATEGORY
+
+FROM TABLE_MAIN
+
+WHERE REF NOT IN (SELECT REF
+                    FROM TABLE_MAIN
+                       GROUP BY REF
+                  HAVING COUNT(*)>1)
+
+                   	
